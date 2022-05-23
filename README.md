@@ -10,9 +10,8 @@
 
 ## Mock-up
 
-The following a video file, sample html and screenshot of what is expected of the application: <br/>
-[Deployed Application Sample](https://drive.google.com/drive/folders/1wiHPWul6dmxzbCo-9KXMFy-27YMrm66g?usp=sharing)
-![A sample page of deployed application that shows a manager, engineer and intern](place image here)
+The following a video file of what is expected of the application: <br/>
+[Deployed Application Video](https://drive.google.com/drive/folders/1wiHPWul6dmxzbCo-9KXMFy-27YMrm66g?usp=sharing)
 
 ## Description
 
