@@ -27,7 +27,7 @@ This particular project was the 10th homework assignment in my Georgia Tech codi
 
 ## User-Story
 
-```md
+```
 AS A business owner
 I WANT to be able to view and manage the departments, roles, and employees in my company
 SO THAT I can organize and plan my business
