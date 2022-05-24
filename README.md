@@ -16,7 +16,7 @@ The following a video file of what is expected of the application: <br/>
 
 ## Description
 
-This application creates an HTML file of company's team of Employees. 
+This application is meant to be used in the terminal/command line.  It allows the user to have all their employees on file and be able to add, remove, and edit the list as needed. 
 
 ## Usage
 
