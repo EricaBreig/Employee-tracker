@@ -2,13 +2,6 @@ const inquirer = require("inquirer");
 // Import and require mysql2
 const mysql = require("mysql2");
 
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
 // Connect to database
 const db = mysql.createConnection(
   {
@@ -19,18 +12,18 @@ const db = mysql.createConnection(
   },
   console.log(`Connected to the emptracker_db database.`)
 );
-connection.connect((err) => {
-  if (err) throw err;
-  console.log("connected as id " + connection.threadId);
-  afterConnection();
-});
+// connection.query((err) => {
+//   if (err) throw err;
+//   console.log("connected as id " + connection.threadId);
+//   afterConnection();
+// });
 
 // Default Prompt
 const promptUser = () => {
   inquirer
     .prompt([
       {
-        name: "defaultChoices",
+        name: "choices",
         type: "list",
         message: "What would you like to do?",
         choices: [
@@ -104,7 +97,7 @@ const promptUser = () => {
       }
     });
 };
-
+promptUser();
 //-------------------View Employees-------------------
 
 //-------------------Add an Employee-------------------
@@ -120,37 +113,34 @@ inquirer.prompt([
     type: "input",
     message: "What is the employee's last name?",
   },
-]);
-//function to add an employee's name
-app.post("/api/new-employee", ({ body }, res) => {
-  let sql = `INSERT INTO employee (first_name, last_name)
-      VALUES (?)`;
-  let params = [body.first_name.last_name];
+  {
+        name: "department",
+        type: "input",
+        message: "What is the employee's department?",
+      },
+      {
+        name: "role",
+        type: "input",
+        message: "What is the employee's role?",
+      },
+])
+.then((answers) =>{
+console.log(answers)
+})
+.catch((error) => {
+    console.log(error)
+})
 
-  db.query(sql, params, (err, result) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "The employee has been added",
-      data: body,
-    });
-  });
-});
-//function to add employee's department and role
-inquirer.prompt([
-  {
-    name: "department",
-    type: "input",
-    message: "What is the employee's department?",
-  },
-  {
-    name: "role",
-    type: "input",
-    message: "What is the employee's role?",
-  },
-]);
+
+//function to add an employee's name
+
+//   db.query(sql, params, (err, result) => {
+//     if (err) {
+//       console.log("error");
+//       return;
+//     }
+//   });
+
 };
 //-------------------Remove an Employee-------------------
 
