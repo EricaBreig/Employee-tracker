@@ -1,4 +1,30 @@
 const inquirer = require("inquirer");
+// Import and require mysql2
+const mysql = require('mysql2');
+
+const PORT = process.env.PORT || 3001;
+const app = express();
+
+// Express middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+// Connect to database
+const db = mysql.createConnection(
+    {
+      host: 'localhost',
+      user: 'root',
+      password: 'root',
+      database: 'emptracker_db'
+    },
+    console.log(`Connected to the emptracker_db database.`)
+  );
+  connection.connect(err => {
+    if (err) throw err;
+    console.log('connected as id ' + connection.threadId);
+    afterConnection();
+  });
+  
 
 inquirer
   .prompt([
@@ -85,21 +111,37 @@ inquirer
 
 
 //-------------------Add an Employee-------------------
-// insert function
 inquirer
 .prompt([
     {
-        name: "firstName",
+        name: "first_name",
         type: "input",
         message: "What is the employee's first name?",
       },
       {
-        name: "lastName",
+        name: "last_name",
         type: "input",
         message: "What is the employee's last name?",
       },
 ])
-//insert function
+//function to add an employee's name
+app.post('/api/new-employee', ({ body }, res) => {
+    const sql = `INSERT INTO employee (first_name, last_name)
+      VALUES (?)`;
+    const params = [body.first_name.last_name];
+    
+    db.query(sql, params, (err, result) => {
+      if (err) {
+        res.status(400).json({ error: err.message });
+        return;
+      }
+      res.json({
+        message: 'success',
+        data: body
+      });
+    });
+  });
+//function to add employee's department and role
 inquirer
 .prompt([
     {
@@ -113,6 +155,7 @@ inquirer
         message: "What is the employee's role?",
       },
 ])
+
 
 //-------------------Remove an Employee-------------------
 
