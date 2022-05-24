@@ -6,6 +6,7 @@
 - [Description](#description)
 - [Usage](#usage)
 - [User-Story](#user-story)
+- [Installation](#installation)
 - [Credit](#credit)
 
 ## Mock-up
@@ -49,5 +50,10 @@ THEN I am prompted to enter the employee’s first name, last name, role, and ma
 WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
 ```
+
+## Installation
+The user should clone the repository from GitHub. This application requires Node.js, Inquirer, console.table and mysql2. To start application run npm start. To view database from MySQL run mysql -u root -p.
+
+
 ## Credit
 Myself, Erica Breig
