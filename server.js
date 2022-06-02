@@ -95,7 +95,7 @@ const mainMenu = () => {
         removeDepartment();
       }
 
-      if (choices === "Exit") {
+      if (choices === "~Exit~") {
         dbConnection.end();
       }
     });
