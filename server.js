@@ -195,16 +195,17 @@ const addEmployee = () => {
                       userInput.push(manager);
                       const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id)
                                     VALUES (?, ?, ?, ?)`;
-                      dbConnection.query(sql, userInput, (error) => {
-                        if (error) throw error;
-                        console.log("Employee has been added!");
-                        viewAllEmployees();
-                      });
+                      dbConnection
+                        .promise()
+                        .query(sql, userInput)
+                        .then(() => {
+                          console.log("Employee has been added!");
+                          viewAllEmployees();
+                        });
                     });
                 });
             });
         });
-      mainMenu();
     });
 };
 
@@ -362,7 +363,7 @@ const updateEmployeeManager = () => {
           dbConnection.query(sql, [managerId, employeeId], (error) => {
             if (error) throw error;
             console.log(`Employee Manager Updated`);
-            mainMenu();
+            viewAllEmployees();
           });
         }
       });
@@ -423,7 +424,7 @@ const addRole = () => {
             [answer.addRole, answer.newSalary, answer.whichDepartment]
           );
 
-          mainMenu();
+          viewAllRoles();
         });
     });
 };
@@ -484,7 +485,6 @@ const addDepartment = () => {
       viewAllDepartments();
     });
 };
-
 
 //---------------Remove Department-------------------
 const removeDepartment = () => {
