@@ -539,3 +539,4 @@ const viewEmployeesByDepartment = () => {
       mainMenu();
     });
 };
+

@@ -13,6 +13,7 @@
 
 The following a video file of what is expected of the application: <br/>
 [Deployed Application Video](https://drive.google.com/drive/folders/1wiHPWul6dmxzbCo-9KXMFy-27YMrm66g?usp=sharing)
+![Image of Application's appearence with the Title EMPLOYEE MANAGER](./assets/employeemanager.png)
 
 ## Description
 
@@ -22,7 +23,7 @@ This application is meant to be used in the terminal/command line.  It allows th
 
 This particular project was the 10th homework assignment in my Georgia Tech coding bootcamp, to build a command-line application from scratch to manage a company's employee database, and to exercise understanding of the following:
 
-- MySQL, inquirer, and node
+- MySQL, and node applications such as: inquirer, and console table
 - creating a CMS
 - creating databases
 
