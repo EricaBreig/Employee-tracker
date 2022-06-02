@@ -1,3 +1,5 @@
+USE emptracker_db;
+
 INSERT INTO department (dep_name)
 VALUES 
 ('Customer Service'),
@@ -13,8 +15,8 @@ VALUES
 ('Finanical Analyst', 150000, 2),
 ('Marketing Coordindator', 70000, 3), 
 ('Sales Lead', 90000, 3),
-('Project Manager', 100000, 4),
-('Operations Manager', 90000, 4);
+('Project Moewnager', 100000, 4),
+('Operations Meownager', 90000, 4);
 
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
